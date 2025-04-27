@@ -1,20 +1,23 @@
 import { useEffect, useState } from 'react';
 import { Button, Container, Spinner, Table } from 'react-bootstrap';
 import { Link, useSearchParams } from 'react-router';
+import { useError } from '../context/ErrorContext';
 import { get } from '../services/api';
 
 export default function LocationsList() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [searchParams, setSearchParams] = useSearchParams();
+  const { showError } = useError();
   const page = Number(searchParams.get('page') || '1');
 
   useEffect(() => {
     setLoading(true);
     get(`/location?page=${page}`)
       .then(setData)
+      .catch((err) => showError(err.message))
       .finally(() => setLoading(false));
-  }, [page]);
+  }, [page, showError]);
 
   if (loading) {
     return (

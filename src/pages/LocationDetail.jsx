@@ -1,15 +1,19 @@
 import { useEffect, useState } from 'react';
 import { Container, ListGroup, Spinner } from 'react-bootstrap';
 import { Link, useParams } from 'react-router';
+import { useError } from '../context/ErrorContext';
 import { get } from '../services/api';
 
 export default function LocationDetail() {
   const { id } = useParams();
   const [loc, setLoc] = useState(null);
+  const { showError } = useError();
 
   useEffect(() => {
-    get(`/location/${id}`).then(setLoc);
-  }, [id]);
+    get(`/location/${id}`)
+      .catch((err) => showError(err.message))
+      .then(setLoc);
+  }, [id, showError]);
 
   if (!loc) {
     return (

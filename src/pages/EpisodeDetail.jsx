@@ -1,15 +1,19 @@
 import { useEffect, useState } from 'react';
 import { Container, ListGroup, Spinner } from 'react-bootstrap';
 import { Link, useParams } from 'react-router';
+import { useError } from '../context/ErrorContext';
 import { get } from '../services/api';
 
 export default function EpisodeDetail() {
   const { id } = useParams();
   const [ep, setEp] = useState(null);
+  const { showError } = useError();
 
   useEffect(() => {
-    get(`/episode/${id}`).then(setEp);
-  }, [id]);
+    get(`/episode/${id}`)
+      .catch((err) => showError(err.message))
+      .then(setEp);
+  }, [id, showError]);
 
   if (!ep) {
     return (

@@ -1,15 +1,19 @@
 import { useEffect, useState } from 'react';
 import { Badge, Col, Container, Row, Spinner } from 'react-bootstrap';
 import { Link, useParams } from 'react-router';
+import { useError } from '../context/ErrorContext';
 import { get } from '../services/api';
 
 export default function CharacterDetail() {
   const { id } = useParams();
+  const { showError } = useError();
   const [char, setChar] = useState(null);
 
   useEffect(() => {
-    get(`/character/${id}`).then(setChar);
-  }, [id]);
+    get(`/character/${id}`)
+      .catch((err) => showError(err.message))
+      .then(setChar);
+  }, [id, showError]);
 
   if (!char) {
     return (

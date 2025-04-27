@@ -5,6 +5,7 @@ import {
   Outlet,
   RouterProvider,
 } from 'react-router';
+import ErrorAlert from './components/ErrorAlert.jsx';
 import CharacterDetail from './pages/CharacterDetail.jsx';
 import CharactersList from './pages/CharactersList.jsx';
 import EpisodeDetail from './pages/EpisodeDetail.jsx';
@@ -12,6 +13,7 @@ import EpisodesList from './pages/EpisodesList.jsx';
 import Home from './pages/Home.jsx';
 import LocationDetail from './pages/LocationDetail.jsx';
 import LocationsList from './pages/LocationsList.jsx';
+import NotFound from './pages/NotFound.jsx';
 
 function RootLayout() {
   return (
@@ -37,6 +39,7 @@ function RootLayout() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+      <ErrorAlert />
       <Outlet />
     </>
   );
@@ -58,6 +61,10 @@ const router = createBrowserRouter([
       { path: 'locations', element: <LocationsList /> },
       { path: 'locations/:id', element: <LocationDetail /> },
     ],
+  },
+  {
+    path: '*',
+    element: <NotFound />,
   },
 ]);
 
