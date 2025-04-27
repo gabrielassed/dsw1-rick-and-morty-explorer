@@ -31,6 +31,14 @@ A aplicação abrirá em `http://localhost:5173` (ou porta indicada no console).
 
 ## Prints da aplicação
 
+!(Print 01)[docs/images/001.png]
+
+!(Print 02)[docs/images/002.png]
+
+!(Print 03)[docs/images/003.png]
+
+!(Print 04)[docs/images/004.png]
+
 ## Licença
 
 Distribuído sob a licença MIT. Consulte `LICENSE` para mais informações.
