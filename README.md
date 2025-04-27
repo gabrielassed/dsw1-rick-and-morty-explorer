@@ -1,12 +1,36 @@
-# React + Vite
+# Rick and Morty Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live demo:** 
 
-Currently, two official plugins are available:
+Aplicação React que consome a [Rick and Morty API](https://rickandmortyapi.com/), exibindo personagens, episódios e locais da série.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tecnologias e bibliotecas
 
-## Expanding the ESLint configuration
+- **React 18** + **Vite**
+- **React Router v7**
+- **react‑bootstrap** + **Bootstrap 5**
+- **Context API**
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Como rodar localmente
+
+### Pré‑requisitos
+
+- Node >= 18
+- PNPM >= 8 (ou npm/yarn, mas os scripts abaixo usam `pnpm`)
+
+### Clonagem e setup
+
+```bash
+git clone https://github.com/gabrielassed/dsw1-rick-and-morty-explorer.git
+cd rick-and-morty-explorer
+pnpm install
+pnpm run dev
+```
+
+A aplicação abrirá em `http://localhost:5173` (ou porta indicada no console).
+
+## Prints da aplicação
+
+## Licença
+
+Distribuído sob a licença MIT. Consulte `LICENSE` para mais informações.
