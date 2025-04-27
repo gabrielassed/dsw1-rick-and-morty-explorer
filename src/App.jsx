@@ -7,7 +7,11 @@ import {
 } from 'react-router';
 import CharacterDetail from './pages/CharacterDetail.jsx';
 import CharactersList from './pages/CharactersList.jsx';
+import EpisodeDetail from './pages/EpisodeDetail.jsx';
+import EpisodesList from './pages/EpisodesList.jsx';
 import Home from './pages/Home.jsx';
+import LocationDetail from './pages/LocationDetail.jsx';
+import LocationsList from './pages/LocationsList.jsx';
 
 function RootLayout() {
   return (
@@ -22,6 +26,12 @@ function RootLayout() {
             <Nav className="me-auto">
               <Nav.Link as={Link} to="/characters">
                 Personagens
+              </Nav.Link>
+              <Nav.Link as={Link} to="/episodes">
+                Episódios
+              </Nav.Link>
+              <Nav.Link as={Link} to="/locations">
+                Locais
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
@@ -38,8 +48,15 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       { index: true, element: <Home /> },
+
       { path: 'characters', element: <CharactersList /> },
       { path: 'characters/:id', element: <CharacterDetail /> },
+
+      { path: 'episodes', element: <EpisodesList /> },
+      { path: 'episodes/:id', element: <EpisodeDetail /> },
+
+      { path: 'locations', element: <LocationsList /> },
+      { path: 'locations/:id', element: <LocationDetail /> },
     ],
   },
 ]);
