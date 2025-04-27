@@ -1,6 +1,6 @@
 # Rick and Morty Explorer
 
-**Live demo:** 
+**Live demo:** [Clique aqui](https://gabrielassed.github.io/dsw1-rick-and-morty-explorer/)
 
 Aplicação React que consome a [Rick and Morty API](https://rickandmortyapi.com/), exibindo personagens, episódios e locais da série.
 

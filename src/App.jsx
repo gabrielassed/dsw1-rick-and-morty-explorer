@@ -45,28 +45,33 @@ function RootLayout() {
   );
 }
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
+    {
+      path: '/',
+      element: <RootLayout />,
+      children: [
+        { index: true, element: <Home /> },
+
+        { path: 'characters', element: <CharactersList /> },
+        { path: 'characters/:id', element: <CharacterDetail /> },
+
+        { path: 'episodes', element: <EpisodesList /> },
+        { path: 'episodes/:id', element: <EpisodeDetail /> },
+
+        { path: 'locations', element: <LocationsList /> },
+        { path: 'locations/:id', element: <LocationDetail /> },
+      ],
+    },
+    {
+      path: '*',
+      element: <NotFound />,
+    },
+  ],
   {
-    path: '/',
-    element: <RootLayout />,
-    children: [
-      { index: true, element: <Home /> },
-
-      { path: 'characters', element: <CharactersList /> },
-      { path: 'characters/:id', element: <CharacterDetail /> },
-
-      { path: 'episodes', element: <EpisodesList /> },
-      { path: 'episodes/:id', element: <EpisodeDetail /> },
-
-      { path: 'locations', element: <LocationsList /> },
-      { path: 'locations/:id', element: <LocationDetail /> },
-    ],
-  },
-  {
-    path: '*',
-    element: <NotFound />,
-  },
-]);
+    basename: import.meta.env.BASE_URL,
+  }
+);
 
 export default function App() {
   return <RouterProvider router={router} />;
